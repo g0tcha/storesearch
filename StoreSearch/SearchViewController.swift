@@ -13,6 +13,7 @@ class SearchViewController: UIViewController {
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
     
+    var dataTask: NSURLSessionDataTask?
     var searchResults = [SearchResult]()
     var hasSearched = false
     var isLoading = false
@@ -47,7 +48,7 @@ class SearchViewController: UIViewController {
     
     func urlWithSearchText(searchText: String) -> NSURL {
         let escapedSearchText = searchText.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())!
-        let urlString = String(format: "https://itunes.apple.comme/search?term=%@&limit=200", escapedSearchText)
+        let urlString = String(format: "https://itunes.apple.com/search?term=%@&limit=200", escapedSearchText)
         let url = NSURL(string: urlString)
         return url!
     }
@@ -216,6 +217,8 @@ extension SearchViewController: UISearchBarDelegate {
         if !searchBar.text!.isEmpty {
             searchBar.resignFirstResponder()
             
+            dataTask?.cancel()
+            
             isLoading = true
             tableView.reloadData()
             
@@ -226,10 +229,10 @@ extension SearchViewController: UISearchBarDelegate {
             
             let session = NSURLSession.sharedSession()
             
-            let dataTask = session.dataTaskWithURL(url, completionHandler: { data, response, error in
+            dataTask = session.dataTaskWithURL(url, completionHandler: { data, response, error in
                 print("On the main thread? " + (NSThread.currentThread().isMainThread ? "Yes" : "No"))
-                if let error = error {
-                    print("Failure! \(error)")
+                if let error = error where error.code == -999 {
+                    return
                 } else if let httpResponse = response as? NSHTTPURLResponse where httpResponse.statusCode == 200 {
                     if let data = data, dictionary = self.parseJSON(data) {
                         self.searchResults = self.parseDictionary(dictionary)
@@ -254,7 +257,7 @@ extension SearchViewController: UISearchBarDelegate {
                 })
             })
             
-            dataTask.resume()
+            dataTask?.resume()
         }
 
     }
