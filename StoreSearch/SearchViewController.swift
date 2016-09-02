@@ -203,6 +203,15 @@ class SearchViewController: UIViewController {
         
         presentViewController(alert, animated: true, completion: nil)
     }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "ShowDetail" {
+            let detailViewController = segue.destinationViewController as! DetailViewController
+            let indexPath = sender as! NSIndexPath
+            let searchResult = searchResults[indexPath.row]
+            detailViewController.searchResult = searchResult
+        }
+    }
 
     @IBAction func segmentChanged(sender: AnyObject) {
         performSearch()
@@ -232,7 +241,6 @@ extension SearchViewController: UISearchBarDelegate {
             let session = NSURLSession.sharedSession()
             
             dataTask = session.dataTaskWithURL(url, completionHandler: { data, response, error in
-                print("On the main thread? " + (NSThread.currentThread().isMainThread ? "Yes" : "No"))
                 if let error = error where error.code == -999 {
                     return
                 } else if let httpResponse = response as? NSHTTPURLResponse where httpResponse.statusCode == 200 {
@@ -300,6 +308,7 @@ extension SearchViewController: UITableViewDataSource {
 extension SearchViewController: UITableViewDelegate {
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        performSegueWithIdentifier("ShowDetail", sender: indexPath)
     }
     
     func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {
