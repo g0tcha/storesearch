@@ -15,6 +15,7 @@ class LandscapeViewController: UIViewController {
     
     var searchResults = [SearchResult]()
     private var firstTime = true
+    private var downloadTasks = [NSURLSessionDownloadTask]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,6 +54,9 @@ class LandscapeViewController: UIViewController {
     
     deinit {
         print("deinit \(self)")
+        for task in downloadTasks {
+            task.cancel()
+        }
     }
     
     private func tileButtons(searchResults: [SearchResult]) {
@@ -93,10 +97,12 @@ class LandscapeViewController: UIViewController {
         var row = 0
         var column = 0
         var x = marginX
-        for (index, searchResult) in searchResults.enumerate() {
-            let button = UIButton(type: .System)
+        for searchResult in searchResults {
+            let button = UIButton(type: .Custom)
+            downloadImageForSearchResult(searchResult, andPlaceOnButton: button)
+            button.setBackgroundImage(UIImage(named: "LandscapeButton"), forState: .Normal)
+            
             button.backgroundColor = UIColor.whiteColor()
-            button.setTitle("\(index)", forState: .Normal)
             
             button.frame = CGRectMake(x + paddingHorz, marginY + CGFloat(row) * itemHeight + paddingVertz, buttonWidth, buttonHeight)
             
@@ -115,10 +121,28 @@ class LandscapeViewController: UIViewController {
         let buttonsPerPage = columnsPerPage * rowsPerPage
         let numPages = 1 + (searchResults.count - 1) / buttonsPerPage
         scrollView.contentSize = CGSize(width: CGFloat(numPages) * scrollViewWidth, height: scrollView.bounds.size.height)
-        print("Number of pages: \(numPages)")
         
+        pageControl.hidesForSinglePage = true
         pageControl.numberOfPages = numPages
+        
         pageControl.currentPage = 0
+    }
+    
+    private func downloadImageForSearchResult(searchResult: SearchResult, andPlaceOnButton button: UIButton) {
+        if let url = NSURL(string: searchResult.artworkURL60) {
+            let session = NSURLSession.sharedSession()
+            let downloadTask = session.downloadTaskWithURL(url) { [weak button] url, response, error in
+                if error == nil, let url = url, data = NSData(contentsOfURL: url), image = UIImage(data: data) {
+                    dispatch_async(dispatch_get_main_queue(), {
+                        if let button = button {
+                            button.setImage(image, forState: .Normal)
+                        }
+                    })
+                }
+            }
+            downloadTask.resume()
+            downloadTasks.append(downloadTask)
+        }
     }
     
     @IBAction func pageChanged(sender: UIPageControl) {
