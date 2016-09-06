@@ -1,0 +1,36 @@
+
+/* Class = "UISearchBar"; placeholder = "App name, artist, song, album, e-book."; ObjectID = "8ce-EO-2ON"; */
+"8ce-EO-2ON.placeholder" = "Artiste, chanson, application, e-book.";
+
+/* Class = "UILabel"; text = "Artist Name"; ObjectID = "Ijf-4A-06T"; */
+"Ijf-4A-06T.text" = "Nom de l'artiste";
+
+/* Class = "UILabel"; text = "Genre:"; ObjectID = "Jz0-Pv-dQm"; */
+"Jz0-Pv-dQm.text" = "Genre:";
+
+/* Class = "UILabel"; text = "Type:"; ObjectID = "OTE-OD-GOD"; */
+"OTE-OD-GOD.text" = "Type:";
+
+/* Class = "UIButton"; normalTitle = "$9.99"; ObjectID = "P5J-oS-k2i"; */
+"P5J-oS-k2i.normalTitle" = "$9.99";
+
+/* Class = "UILabel"; text = "Kind Value"; ObjectID = "Vxu-OR-CWc"; */
+"Vxu-OR-CWc.text" = "Kind Value";
+
+/* Class = "UISegmentedControl"; fiD-ro-WEZ.segmentTitles[0] = "All"; ObjectID = "fiD-ro-WEZ"; */
+"fiD-ro-WEZ.segmentTitles[0]" = "Tout";
+
+/* Class = "UISegmentedControl"; fiD-ro-WEZ.segmentTitles[1] = "Music"; ObjectID = "fiD-ro-WEZ"; */
+"fiD-ro-WEZ.segmentTitles[1]" = "Musique";
+
+/* Class = "UISegmentedControl"; fiD-ro-WEZ.segmentTitles[2] = "Software"; ObjectID = "fiD-ro-WEZ"; */
+"fiD-ro-WEZ.segmentTitles[2]" = "App";
+
+/* Class = "UISegmentedControl"; fiD-ro-WEZ.segmentTitles[3] = "E-books"; ObjectID = "fiD-ro-WEZ"; */
+"fiD-ro-WEZ.segmentTitles[3]" = "E-books";
+
+/* Class = "UILabel"; text = "Genre Value"; ObjectID = "ihQ-aA-sxD"; */
+"ihQ-aA-sxD.text" = "Genre Value";
+
+/* Class = "UILabel"; text = "Name"; ObjectID = "xNA-Mn-Q7B"; */
+"xNA-Mn-Q7B.text" = "Nom";

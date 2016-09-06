@@ -160,7 +160,7 @@ class LandscapeViewController: UIViewController {
             let button = UIButton(type: .Custom)
             
             button.tag = 2000 + index
-            button.addTarget(self, action: Selector("buttonPressed:"), forControlEvents: .TouchUpInside)
+            button.addTarget(self, action: #selector(LandscapeViewController.buttonPressed(_:)), forControlEvents: .TouchUpInside)
             
             downloadImageForSearchResult(searchResult, andPlaceOnButton: button)
             button.setBackgroundImage(UIImage(named: "LandscapeButton"), forState: .Normal)
