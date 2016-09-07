@@ -82,9 +82,14 @@ class Search {
     
     private func urlWithSearchText(searchText: String, category: Category) -> NSURL {
         let entityName = category.entityName
+        let locale = NSLocale.autoupdatingCurrentLocale()
+        let lang = locale.localeIdentifier
+        let countryCode = locale.objectForKey(NSLocaleCountryCode) as! String
+        
         let escapedSearchText = searchText.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())!
-        let urlString = String(format: "https://itunes.apple.com/search?term=%@&limit=200&entity=%@", escapedSearchText, entityName)
+        let urlString = String(format: "https://itunes.apple.com/search?term=%@&limit=200&entity=%@&lang=%@&country=%@", escapedSearchText, entityName, lang, countryCode)
         let url = NSURL(string: urlString)
+        print("URL: \(url!)")
         return url!
     }
     
@@ -92,14 +97,12 @@ class Search {
         do {
             return try NSJSONSerialization.JSONObjectWithData(data, options: []) as? [String: AnyObject]
         } catch {
-            print("JSON Error \(error)")
             return nil
         }
     }
     
     private func parseDictionary(dictionary: [String: AnyObject]) -> [SearchResult] {
         guard let array = dictionary["results"] as? [AnyObject] else {
-            print("Expected 'results' array")
             return []
         }
         

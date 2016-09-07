@@ -21,10 +21,12 @@
 		BF35FE811D7F118A00FFB0DC /* NothingFoundCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF35FE831D7F118A00FFB0DC /* NothingFoundCell.xib */; };
 		BF35FE851D7F133800FFB0DC /* LoadingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF35FE871D7F133800FFB0DC /* LoadingCell.xib */; };
 		BF35FE8C1D7F14C200FFB0DC /* SearchResultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF35FE8E1D7F14C200FFB0DC /* SearchResultCell.xib */; };
+		BF35FE911D7F1A0800FFB0DC /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BF35FE8F1D7F1A0800FFB0DC /* Localizable.strings */; };
 		BF8A6D7E1D796EA7009254C1 /* UIImageView+DownloadImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8A6D7D1D796EA7009254C1 /* UIImageView+DownloadImage.swift */; };
 		BF8A6D801D79833C009254C1 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8A6D7F1D79833C009254C1 /* DetailViewController.swift */; };
 		BF8A6D821D7985DA009254C1 /* DimmingPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8A6D811D7985DA009254C1 /* DimmingPresentationController.swift */; };
 		BF8FD9DD1D4A2F0C0056071A /* SearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8FD9DC1D4A2F0C0056071A /* SearchResultCell.swift */; };
+		BFD3B7BB1D7FF8F10036FF08 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BFD3B7BD1D7FF8F10036FF08 /* InfoPlist.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,7 +36,7 @@
 		BF122B701D7DA33F00038785 /* LandscapeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LandscapeViewController.swift; sourceTree = "<group>"; };
 		BF122B721D7DB48A00038785 /* FadeOutAnimationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FadeOutAnimationController.swift; sourceTree = "<group>"; };
 		BF1639C31D478B2800599C17 /* StoreSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StoreSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		BF1639C61D478B2800599C17 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		BF1639C61D478B2800599C17 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = AppDelegate.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		BF1639C81D478B2800599C17 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		BF1639CB1D478B2800599C17 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BF1639CD1D478B2800599C17 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -47,10 +49,14 @@
 		BF35FE891D7F134C00FFB0DC /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/LoadingCell.strings; sourceTree = "<group>"; };
 		BF35FE8B1D7F13F900FFB0DC /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main.strings; sourceTree = "<group>"; };
 		BF35FE8D1D7F14C200FFB0DC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SearchResultCell.xib; sourceTree = "<group>"; };
+		BF35FE901D7F1A0800FFB0DC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		BF35FE921D7F1A8E00FFB0DC /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		BF8A6D7D1D796EA7009254C1 /* UIImageView+DownloadImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+DownloadImage.swift"; sourceTree = "<group>"; };
 		BF8A6D7F1D79833C009254C1 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		BF8A6D811D7985DA009254C1 /* DimmingPresentationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DimmingPresentationController.swift; sourceTree = "<group>"; };
 		BF8FD9DC1D4A2F0C0056071A /* SearchResultCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultCell.swift; sourceTree = "<group>"; };
+		BFD3B7BC1D7FF8F10036FF08 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		BFD3B7BE1D7FF8FB0036FF08 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +89,7 @@
 		BF1639C51D478B2800599C17 /* StoreSearch */ = {
 			isa = PBXGroup;
 			children = (
+				BF35FE8F1D7F1A0800FFB0DC /* Localizable.strings */,
 				BF1639C61D478B2800599C17 /* AppDelegate.swift */,
 				BF1639C81D478B2800599C17 /* SearchViewController.swift */,
 				BF1639CA1D478B2800599C17 /* Main.storyboard */,
@@ -102,6 +109,7 @@
 				BF122B701D7DA33F00038785 /* LandscapeViewController.swift */,
 				BF122B721D7DB48A00038785 /* FadeOutAnimationController.swift */,
 				BF35FE7F1D7EBE0500FFB0DC /* Search.swift */,
+				BFD3B7BD1D7FF8F10036FF08 /* InfoPlist.strings */,
 			);
 			path = StoreSearch;
 			sourceTree = "<group>";
@@ -166,6 +174,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				BF1639CE1D478B2800599C17 /* Assets.xcassets in Resources */,
+				BFD3B7BB1D7FF8F10036FF08 /* InfoPlist.strings in Resources */,
+				BF35FE911D7F1A0800FFB0DC /* Localizable.strings in Resources */,
 				BF35FE851D7F133800FFB0DC /* LoadingCell.xib in Resources */,
 				BF35FE8C1D7F14C200FFB0DC /* SearchResultCell.xib in Resources */,
 				BF35FE811D7F118A00FFB0DC /* NothingFoundCell.xib in Resources */,
@@ -232,6 +242,24 @@
 				BF35FE8D1D7F14C200FFB0DC /* Base */,
 			);
 			name = SearchResultCell.xib;
+			sourceTree = "<group>";
+		};
+		BF35FE8F1D7F1A0800FFB0DC /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BF35FE901D7F1A0800FFB0DC /* en */,
+				BF35FE921D7F1A8E00FFB0DC /* fr */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		BFD3B7BD1D7FF8F10036FF08 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BFD3B7BC1D7FF8F10036FF08 /* Base */,
+				BFD3B7BE1D7FF8FB0036FF08 /* fr */,
+			);
+			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
