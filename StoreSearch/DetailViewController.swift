@@ -17,7 +17,14 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var genreLabel: UILabel!
     @IBOutlet weak var priceButton: UIButton!
     
-    var searchResult: SearchResult!
+    var isPopUp = false
+    var searchResult: SearchResult! {
+        didSet {
+            if isViewLoaded() {
+                updateUI()
+            }
+        }
+    }
     var downloadTask: NSURLSessionDownloadTask?
     var dismissAnimationStyle = AnimationStyle.Fade
     
@@ -31,14 +38,18 @@ class DetailViewController: UIViewController {
         view.backgroundColor = UIColor.clearColor()
         view.tintColor = UIColor(red: 20/255, green: 160/255, blue: 160/255, alpha: 1)
         popupView.layer.cornerRadius = 10
-
-        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(DetailViewController.close))
-        gestureRecognizer.cancelsTouchesInView = false
-        gestureRecognizer.delegate = self
-        view.addGestureRecognizer(gestureRecognizer)
         
-        if searchResult != nil {
-            updateUI()
+        if isPopUp {
+            let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(DetailViewController.close))
+            gestureRecognizer.cancelsTouchesInView = false
+            gestureRecognizer.delegate = self
+            view.addGestureRecognizer(gestureRecognizer)
+        } else {
+            if let displayName = NSBundle.mainBundle().localizedInfoDictionary?["CFBundleDisplayName"] as? String {
+                title = displayName
+            }
+            view.backgroundColor = UIColor(patternImage: UIImage(named: "LandscapeBackground")!)
+            popupView.hidden = true
         }
     }
 
@@ -89,6 +100,8 @@ class DetailViewController: UIViewController {
         if let url = NSURL(string: searchResult.artworkURL100) {
             downloadTask = artworkImageView.loadImageWithUrl(url)
         }
+        
+        popupView.hidden = false
     }
     
     @IBAction func openInStore() {
