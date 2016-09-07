@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MessageUI
 
 class DetailViewController: UIViewController {
     @IBOutlet weak var popupView: UIView!
@@ -68,6 +69,13 @@ class DetailViewController: UIViewController {
     deinit {
         print("deinit \(self)")
         downloadTask?.cancel()
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "ShowMenu" {
+            let controller = segue.destinationViewController as! MenuViewController
+            controller.delegate = self
+        }
     }
     
     func updateUI() {
@@ -140,5 +148,25 @@ extension DetailViewController: UIViewControllerTransitioningDelegate {
 extension DetailViewController: UIGestureRecognizerDelegate {
     func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldReceiveTouch touch: UITouch) -> Bool {
         return (touch.view === self.view)
+    }
+}
+
+extension DetailViewController: MenuViewControllerDelegate {
+    func menuViewControllerSendSupportEmail(controller: MenuViewController) {
+        dismissViewControllerAnimated(true) {
+            if MFMailComposeViewController.canSendMail() {
+                let controller = MFMailComposeViewController()
+                controller.mailComposeDelegate = self
+                controller.setSubject(NSLocalizedString("Support Request", comment: "Email subject"))
+                controller.setToRecipients(["vincent.grossier@gmail.com"])
+                self.presentViewController(controller, animated: true, completion: nil)
+            }
+        }
+    }
+}
+
+extension DetailViewController: MFMailComposeViewControllerDelegate {
+    func mailComposeController(controller: MFMailComposeViewController, didFinishWithResult result: MFMailComposeResult, error: NSError?) {
+        dismissViewControllerAnimated(true, completion: nil)
     }
 }

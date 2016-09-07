@@ -27,6 +27,7 @@
 		BF8A6D821D7985DA009254C1 /* DimmingPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8A6D811D7985DA009254C1 /* DimmingPresentationController.swift */; };
 		BF8FD9DD1D4A2F0C0056071A /* SearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8FD9DC1D4A2F0C0056071A /* SearchResultCell.swift */; };
 		BFD3B7BB1D7FF8F10036FF08 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BFD3B7BD1D7FF8F10036FF08 /* InfoPlist.strings */; };
+		BFD3B7C01D8015730036FF08 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD3B7BF1D8015730036FF08 /* MenuViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,6 +58,7 @@
 		BF8FD9DC1D4A2F0C0056071A /* SearchResultCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultCell.swift; sourceTree = "<group>"; };
 		BFD3B7BC1D7FF8F10036FF08 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		BFD3B7BE1D7FF8FB0036FF08 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		BFD3B7BF1D8015730036FF08 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +112,7 @@
 				BF122B721D7DB48A00038785 /* FadeOutAnimationController.swift */,
 				BF35FE7F1D7EBE0500FFB0DC /* Search.swift */,
 				BFD3B7BD1D7FF8F10036FF08 /* InfoPlist.strings */,
+				BFD3B7BF1D8015730036FF08 /* MenuViewController.swift */,
 			);
 			path = StoreSearch;
 			sourceTree = "<group>";
@@ -193,6 +196,7 @@
 				BF35FE801D7EBE0500FFB0DC /* Search.swift in Sources */,
 				BF1639C91D478B2800599C17 /* SearchViewController.swift in Sources */,
 				BF8A6D821D7985DA009254C1 /* DimmingPresentationController.swift in Sources */,
+				BFD3B7C01D8015730036FF08 /* MenuViewController.swift in Sources */,
 				BF122B731D7DB48A00038785 /* FadeOutAnimationController.swift in Sources */,
 				BF1639D91D4796F200599C17 /* SearchResult.swift in Sources */,
 				BF8FD9DD1D4A2F0C0056071A /* SearchResultCell.swift in Sources */,
